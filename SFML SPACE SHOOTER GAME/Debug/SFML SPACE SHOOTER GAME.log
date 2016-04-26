@@ -1,0 +1,19 @@
+﻿  World.cpp
+  Player.cpp
+  GameState.cpp
+  GameOverState.cpp
+  Generating Code...
+  Compiling...
+  SettingsState.cpp
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  Spaceship.cpp
+  SelectLevelState.cpp
+  Projectile.cpp
+  Pickup.cpp
+  Main.cpp
+  Entity.cpp
+  DataTables.cpp
+  Application.cpp
+  SFML SPACE SHOOTER GAME.vcxproj -> C:\Users\PC\Documents\Visual Studio 2015\Projects\SfmlGaim\Debug\SFMLGame.exe
+  SFML SPACE SHOOTER GAME.vcxproj -> C:\Users\PC\Documents\Visual Studio 2015\Projects\SfmlGaim\Debug\SFMLGame.pdb (Partial PDB)
