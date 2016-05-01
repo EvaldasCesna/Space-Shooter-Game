@@ -9,6 +9,14 @@ int rc;
 char *sql;
 const char* data = "CallBack function called";
 
+/***************************************************************************************
+    *    Title:SQLite c++ Tutorial 
+    *    Author: Tutorialspoint.com
+    *    Date:  01 May 2016
+    *    Availability: http://www.tutorialspoint.com/sqlite/sqlite_c_cpp.htm
+    *
+    ************************************************************************************/
+
 int open() {
 
 	rc = sqlite3_open("Scores.db", &db);

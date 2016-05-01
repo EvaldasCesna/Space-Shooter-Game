@@ -14,6 +14,15 @@
 #include <Menu/UpgradeState.h>
 #include <Menu/LeaderBoardState.h>
 
+/***************************************************************************************
+    *    Title:SFML Game Development
+    *    Author:Haller J,Hansson H.V, Moreira A
+    *    Date:June 2013
+    *    Availability: https://www.packtpub.com/game-development/sfml-game-development
+    *
+    ************************************************************************************/
+	//Used the book for grounds of our game
+
 const sf::Time Application::TimePerFrame = sf::seconds(1.f / 60.f);
 
 Application::Application() : mWindow(sf::VideoMode(1024, 768), "SFML Space Shooter Game", sf::Style::Close)
