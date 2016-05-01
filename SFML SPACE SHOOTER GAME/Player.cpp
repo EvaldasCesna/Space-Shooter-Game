@@ -4,6 +4,8 @@
 #include <map>
 #include <string>
 #include <algorithm>
+
+#include <Game/Entity.h>
 using namespace std::placeholders;
 
 struct AircraftMover
@@ -13,6 +15,7 @@ struct AircraftMover
 	void operator() (Spaceship& spaceship, sf::Time) const {
 		spaceship.accelerate(velocity * spaceship.getMaxSpeed());
 	}
+
 	sf::Vector2f velocity;
 };
 
@@ -24,7 +27,7 @@ Player::Player() : mCurrentMissionStatus(LevelRunning)
 	mKeyBinding[sf::Keyboard::Up] = MoveUp;
 	mKeyBinding[sf::Keyboard::Down] = MoveDown;
 	mKeyBinding[sf::Keyboard::Space] = Fire;
-	mKeyBinding[sf::Keyboard::M] = LaunchMissile;
+	mKeyBinding[sf::Keyboard::M] = Special;
 	// Set actions
 	initializeActions();
 
@@ -87,7 +90,7 @@ void Player::initializeActions() {
 	mActionBinding[MoveUp].action = derivedAction<Spaceship>(AircraftMover(0, -1));
 	mActionBinding[MoveDown].action = derivedAction<Spaceship>(AircraftMover(0, +1));
 	mActionBinding[Fire].action = derivedAction<Spaceship>([](Spaceship& a, sf::Time) { a.shoot(); });
-	mActionBinding[LaunchMissile].action = derivedAction<Spaceship>([](Spaceship& a, sf::Time) { a.shootMissile(); });
+	mActionBinding[Special].action = derivedAction<Spaceship>([](Spaceship& a, sf::Time) { a.shootMissile(); });
 }
 
 bool Player::isRealtimeAction(Action action) {
@@ -104,14 +107,54 @@ bool Player::isRealtimeAction(Action action) {
 	}
 }
 
-void Player::updateScore(unsigned int in) {
-	score += in;
+void Player::updateScore(int in) {
+	mScore = in;
 }
 
-int Player::getScore() {        // NOT WORKING ATM
-	return score;
+int Player::getScore() { 
+	return mScore;
 }
 
 void Player::resetScore() {
-	score = 0;
+	mScore = 0;
+}
+
+void Player::setLevel(int l) {
+	mLevel = l;
+}
+
+int Player::getLevel() {
+	return mLevel;
+}
+
+void Player::setHull(int h) {
+	mHull = h;
+}
+
+int Player::getHull(){
+	return mHull;
+}
+
+void Player::setShip(int s) {
+	mShip = s;
+}
+
+int Player::getShip() {
+	return mShip;
+}
+
+void Player::setWeapon1(int w) {
+	mWeapon1 = w;
+}
+
+int Player::getWeapon1() {
+	return mWeapon1;
+}
+
+void Player::setWeapon2(int w) {
+	mWeapon2 = w;
+}
+
+int Player::getWeapon2() {
+	return mWeapon2;
 }

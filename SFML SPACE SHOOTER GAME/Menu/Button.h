@@ -27,6 +27,8 @@ namespace GUI {
 
 		Button(State::Context);
 
+		//put level select here maybe
+
 		void setCallback(Callback);
 		void setText(const std::string&);
 		void setToggle(bool);

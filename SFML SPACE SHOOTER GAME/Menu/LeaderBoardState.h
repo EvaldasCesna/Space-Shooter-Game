@@ -6,6 +6,7 @@
 #include <Menu/Label.h>
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Text.hpp>
+#include <Database/Database.h>
 
 class LeaderBoardState : public State {
 public:
@@ -13,6 +14,8 @@ public:
 	virtual void draw();
 	virtual bool update(sf::Time dt);
 	virtual bool handleEvent(const sf::Event& event);
+	GUI::Label::Ptr Scores;
+	void UpdateLeaderboard();
 
 private:
 	sf::Sprite mBackgroundSprite;

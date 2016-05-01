@@ -60,7 +60,7 @@ int Entity::getScore() const {
 	return mScore;
 }
 
-void Entity::updateCurrent(sf::Time dt, CommandQueue&) {
+void Entity::updateCurrent(sf::Time dt, CommandQueue& commands) {
 	move(mVelocity * dt.asSeconds());
 }
 

@@ -16,6 +16,8 @@
 #include <array>
 #include <queue>
 
+
+
 // Forward declaration
 namespace sf {
 	class RenderTarget;
@@ -23,15 +25,13 @@ namespace sf {
 
 class World : private sf::NonCopyable {
 public:
-	World(sf::RenderTarget&, FontHolder&, SoundPlayer&);
+	World(sf::RenderTarget&, FontHolder&, SoundPlayer&, Player&);
 	void update(sf::Time);
 	void draw();
 	CommandQueue& getCommandQueue();
 
 	bool hasAlivePlayer() const;
 	bool hasActiveEnemy() const;
-	bool hasPlayerReachedEnd() const;
-
 	void setLevel(int lin);
 
 private:
@@ -43,6 +43,9 @@ private:
 
 	void buildScene();
 	void addEnemies();
+	void endless();
+	void updateTime(sf::Time & tIn);
+	sf::Time getTime();
 	void addEnemy(Spaceship::Type, float, float);
 
 	void spawnEnemies();
@@ -68,23 +71,27 @@ private:
 	sf::RenderTarget& mTarget;
 	sf::RenderTexture mSceneTexture;
 	sf::View mWorldView;
+	sf::View mBackView;
 	TextureHolder mTextures;
 	FontHolder& mFonts;
 	SoundPlayer& mSounds;
+	Player& mPlayer;
 
 	SceneNode mSceneGraph;
 	std::array<SceneNode*, LayerCount> mSceneLayers;
 	CommandQueue mCommandQueue;
 
+	sf::Time mTime;
 	sf::FloatRect mWorldBounds;
 	sf::Vector2f mSpawnPosition;
 	float mScrollSpeed;
 	Spaceship* mPlayerAircraft;
-	int level;
-	int score;
+	int mLevel;
+	int mScore;
 	std::vector<SpawnPoint> mEnemySpawnPoints;
 	std::vector<Spaceship*> mActiveEnemies;
 
 	BloomEffect mBloomEffect;
+
 };
 #endif // !GAME_WORLD_H

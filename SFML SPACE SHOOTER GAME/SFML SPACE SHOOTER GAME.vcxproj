@@ -27,6 +27,7 @@
     <ClCompile Include="CommandQueue.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Container.cpp" />
+    <ClCompile Include="Database.cpp" />
     <ClCompile Include="DataTables.cpp" />
     <ClCompile Include="EmitterNode.cpp" />
     <ClCompile Include="Entity.cpp" />
@@ -61,6 +62,7 @@
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Database\Database.h" />
     <ClInclude Include="Game\Animation.h" />
     <ClInclude Include="Game\Application.h" />
     <ClInclude Include="Game\BloomEffect.h" />
@@ -70,7 +72,6 @@
     <ClInclude Include="Game\DataTables.h" />
     <ClInclude Include="Game\EmitterNode.h" />
     <ClInclude Include="Game\Entity.h" />
-    <ClInclude Include="Game\GameOverState.h" />
     <ClInclude Include="Game\GameState.h" />
     <ClInclude Include="Game\Particle.h" />
     <ClInclude Include="Game\ParticleNode.h" />
@@ -87,12 +88,12 @@
     <ClInclude Include="Game\StateIdentifiers.h" />
     <ClInclude Include="Game\StateStack.h" />
     <ClInclude Include="Game\TextNode.h" />
-    <ClInclude Include="Game\TitleState.h" />
     <ClInclude Include="Game\Utility.h" />
     <ClInclude Include="Game\World.h" />
     <ClInclude Include="Menu\Button.h" />
     <ClInclude Include="Menu\Component.h" />
     <ClInclude Include="Menu\Container.h" />
+    <ClInclude Include="Menu\GameOverState.h" />
     <ClInclude Include="Menu\HelpState.h" />
     <ClInclude Include="Menu\Label.h" />
     <ClInclude Include="Menu\LeaderBoardState.h" />
@@ -101,6 +102,7 @@
     <ClInclude Include="Menu\PlayState.h" />
     <ClInclude Include="Menu\SelectLevelState.h" />
     <ClInclude Include="Menu\SettingsState.h" />
+    <ClInclude Include="Menu\TitleState.h" />
     <ClInclude Include="Menu\UpgradeState.h" />
     <ClInclude Include="Sound\MusicPlayer.h" />
     <ClInclude Include="Sound\SoundNode.h" />
@@ -161,22 +163,23 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(SolutionDir)SFML-2.3.2\include;$(IncludePath);$(SolutionDir)\SFML SPACE SHOOTER GAME</IncludePath>
-    <LibraryPath>$(SolutionDir)SFML-2.3.2\lib;$(LibraryPath);$(SolutionDir)\SFMLTRY</LibraryPath>
+    <IncludePath>$(SolutionDir)SFML-2.3.2\include;$(IncludePath);$(SolutionDir)\SFML SPACE SHOOTER GAME;$(SolutionDir)SFML SPACE SHOOTER GAME\sqlite</IncludePath>
+    <LibraryPath>$(SolutionDir)SFML-2.3.2\lib;$(LibraryPath);$(SolutionDir)\SFMLTRY;$(SolutionDir)SFML SPACE SHOOTER GAME\sqlite</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)SFML-2.3.2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)SFML-2.3.2\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)SFML-2.3.2\include;$(IncludePath);;$(SolutionDir)SFML SPACE SHOOTER GAME\sqlite</IncludePath>
+    <LibraryPath>$(SolutionDir)SFML-2.3.2\lib;$(LibraryPath);;$(SolutionDir)SFML SPACE SHOOTER GAME\sqlite</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>sfml-graphics-d.lib;sfml-audio-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-main-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <SubSystem>NotSet</SubSystem>
+      <AdditionalDependencies>sqlite3.lib;sfml-graphics-d.lib;sfml-audio-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-main-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -197,8 +200,8 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>sfml-graphics.lib;sfml-audio.lib;sfml-window.lib;sfml-system.lib;sfml-main.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <SubSystem>NotSet</SubSystem>
+      <AdditionalDependencies>sqlite3.lib;sfml-graphics.lib;sfml-audio.lib;sfml-window.lib;sfml-system.lib;sfml-main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

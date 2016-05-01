@@ -6,8 +6,9 @@
 #include <SFML/Graphics/Rect.hpp>
 #include <vector>
 #include <functional>
-
+#include <Game/Player.h>
 class Spaceship;
+
 struct Direction {
 	Direction(float angle, float distance) : angle(angle), distance(distance) {}
 	float angle;
@@ -16,7 +17,7 @@ struct Direction {
 
 struct AircraftData {
 	int health;
-	int score;
+	int mScore;
 	float speed;
 	Textures::ID texture;
 	sf::IntRect textureRect;
@@ -29,6 +30,7 @@ struct ProjectileData {
 	int damage;
 	float speed;
 	Textures::ID texture;
+	std::vector<Direction> directions;
 	sf::IntRect textureRect;
 };
 
@@ -43,22 +45,9 @@ struct ParticleData {
 	sf::Time lifetime;
 };
 
-/*
-struct BossData
-{
-int health;
-float speed;
-Textures::ID texture;
-sf::IntRect textureRect;
-sf::Time fireInterval;
-std::vector<Direction> directions;
-bool hasAnimation;
-};
-*/
 std::vector<AircraftData>	initializeAircraftData();
 std::vector<ProjectileData>	initializeProjectileData();
 std::vector<PickupData>		initializePickupData();
 std::vector<ParticleData>	initializeParticleData();
-//std::vector<BossData>     initializeBossData();
 
 #endif // !GAME_DATATABLES_H

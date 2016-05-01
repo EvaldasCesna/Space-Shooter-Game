@@ -10,9 +10,8 @@ public:
 	Command pop();
 	bool isEmpty() const;
 private:
-	std::queue<Command> mQueue;
-
-	//std::vector<Command> mQueue;
-
+	std::vector<Command> mVector;
 };
+
+
 #endif // !GAME_COMMANDQUEUE_H

@@ -2,6 +2,7 @@
 #include <Menu/Button.h>
 #include <Game/Utility.h>
 #include <Sound/MusicPlayer.h>
+
 #include <Game/ResourceHolder.h>
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
@@ -39,6 +40,7 @@ PauseState::PauseState(StateStack& stack, Context context) : State(stack, contex
 	mGUIContainer.pack(returnButton);
 	mGUIContainer.pack(backToMenuButton);
 	getContext().music->setPaused(true);
+
 }
 
 PauseState::~PauseState() {
@@ -59,10 +61,12 @@ void PauseState::draw() {
 }
 
 bool PauseState::update(sf::Time) {
+	
 	return false;
 }
 
 bool PauseState::handleEvent(const sf::Event& event) {
+
 	mGUIContainer.handleEvent(event);
 	return false;
 }

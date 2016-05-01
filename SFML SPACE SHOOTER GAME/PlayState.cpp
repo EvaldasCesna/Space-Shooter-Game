@@ -9,31 +9,32 @@
 PlayState::PlayState(StateStack& stack, Context context) : State(stack, context), mGUIContainer() {
 	sf::Texture& texture = context.textures->get(Textures::TitleScreen);
 	mBackgroundSprite.setTexture(texture);
+	sf::Vector2f windowSize(context.window->getSize());
 
 	auto playButton = std::make_shared<GUI::Button>(context);
-	playButton->setPosition(440, 300);
-	playButton->setText("New Game ");
+	playButton->setPosition(0.4f * windowSize.x, 0.3f * windowSize.y);
+	playButton->setText("New Game");
 	playButton->setCallback([this]() {
 		requestStackPop();
 		requestStackPush(States::Game);
 	});
 
 	auto LevelButton = std::make_shared<GUI::Button>(context);
-	LevelButton->setPosition(440, 350);
+	LevelButton->setPosition(0.4f * windowSize.x, 0.4f * windowSize.y);
 	LevelButton->setText("Select Level");
 	LevelButton->setCallback([this]() {
 		requestStackPush(States::LevelSelect);
 	});
 
 	auto UpgradesButton = std::make_shared<GUI::Button>(context);
-	UpgradesButton->setPosition(440, 400);
-	UpgradesButton->setText("Upgrade your ship");
+	UpgradesButton->setPosition(0.4f * windowSize.x, 0.5f * windowSize.y);
+	UpgradesButton->setText("Ship Modifications");
 	UpgradesButton->setCallback([this]() {
 		requestStackPush(States::Upgrade);
 	});
 
 	auto LeaderBButton = std::make_shared<GUI::Button>(context);
-	LeaderBButton->setPosition(440, 450);
+	LeaderBButton->setPosition(0.4f * windowSize.x, 0.6f * windowSize.y);
 	LeaderBButton->setText("Leaderboards");
 	LeaderBButton->setCallback([this]() {
 		requestStackPush(States::Leader);
@@ -41,7 +42,7 @@ PlayState::PlayState(StateStack& stack, Context context) : State(stack, context)
 
 
 	auto backButton = std::make_shared<GUI::Button>(context);
-	backButton->setPosition(440, 600);
+	backButton->setPosition(0.4f * windowSize.x, 0.8f * windowSize.y);
 	backButton->setText("Back");
 	backButton->setCallback([this]() {
 		requestStackPop();

@@ -5,19 +5,19 @@
 
 SettingsState::SettingsState(StateStack& stack, Context context) : State(stack, context), mGUIContainer() {
 	mBackgroundSprite.setTexture(context.textures->get(Textures::TitleScreen));
-
+	sf::Vector2f windowSize(context.window->getSize());
 	// Labeling according to button
 	addButtonLabel(Player::MoveLeft, 300.f, "Move Left", context);
 	addButtonLabel(Player::MoveRight, 350.f, "Move Right", context);
 	addButtonLabel(Player::MoveUp, 400.f, "Move Up", context);
 	addButtonLabel(Player::MoveDown, 450.f, "Move Down", context);
 	addButtonLabel(Player::Fire, 500.f, "Fire", context);
-	addButtonLabel(Player::LaunchMissile, 550.f, "Missile", context);
+	addButtonLabel(Player::Special, 550.f, "Special", context);
 
 	updateLabels();
 
 	auto backButton = std::make_shared<GUI::Button>(context);
-	backButton->setPosition(80.f, 620.f);
+	backButton->setPosition(0.4f * windowSize.x, 0.8f * windowSize.y);
 	backButton->setText("Back");
 	backButton->setCallback(std::bind(&SettingsState::requestStackPop, this));
 
@@ -50,7 +50,7 @@ bool SettingsState::handleEvent(const sf::Event& event) {
 		}
 	}
 
-	// If the pressed a key change binding, update the label, otherwise wait basically
+	// If the pressed a key change binding, update the label, otherwise wait
 	if (isKeyBinding)
 		updateLabels();
 	else

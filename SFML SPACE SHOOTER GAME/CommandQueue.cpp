@@ -2,17 +2,17 @@
 #include <Game/SceneNode.h>
 
 void CommandQueue::push(const Command& command) {
-	mQueue.push(command);
+	// Reserve could be used for better performance
+	mVector.reserve(1000);
+	mVector.push_back(command);
 }
 
 Command CommandQueue::pop() {
-	//Command command = mQueue.back(); if using vector right now missles break but better performance
-	//mQueue.pop_back();
-	Command command = mQueue.front();
-	mQueue.pop();
+	Command command = mVector.back(); 
+	mVector.pop_back();
 	return command;
 }
 
 bool CommandQueue::isEmpty() const {
-	return mQueue.empty();
+	return mVector.empty();
 }

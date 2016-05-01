@@ -22,7 +22,7 @@ public:
 	int getScore() const;
 
 protected:
-	virtual void updateCurrent(sf::Time dt, CommandQueue& commands);
+	virtual void updateCurrent(sf::Time, CommandQueue&);
 
 private:
 	sf::Vector2f mVelocity;

@@ -26,6 +26,12 @@ namespace GUI {
 			if (event.key.code == sf::Keyboard::W || event.key.code == sf::Keyboard::Up) {
 				selectPrevious();
 			}
+			else if (event.key.code == sf::Keyboard::D || event.key.code == sf::Keyboard::Left) {
+				selectPrevious();
+			}
+			else if (event.key.code == sf::Keyboard::A || event.key.code == sf::Keyboard::Right) {
+				selectNext();
+			}
 			else if (event.key.code == sf::Keyboard::S || event.key.code == sf::Keyboard::Down) {
 				selectNext();
 			}

@@ -1,19 +1,53 @@
 ﻿  World.cpp
+  Utility.cpp
+  UpgradeState.cpp
+  TitleState.cpp
+  TextNode.cpp
+  StateStack.cpp
+  State.cpp
+  SpriteNode.cpp
+  Spaceship.cpp
+  SoundPlayer.cpp
+  SoundNode.cpp
+  SettingsState.cpp
+  SelectLevelState.cpp
+  SceneNode.cpp
+  Projectile.cpp
+  PostEffect.cpp
+  PlayState.cpp
   Player.cpp
-  GameState.cpp
-  GameOverState.cpp
+  Pickup.cpp
+  PauseState.cpp
   Generating Code...
   Compiling...
-  SettingsState.cpp
-  Generating Code...
-  Skipping... (no relevant changes detected)
-  Spaceship.cpp
-  SelectLevelState.cpp
-  Projectile.cpp
-  Pickup.cpp
+  ParticleNode.cpp
+  MusicPlayer.cpp
+  MenuState.cpp
   Main.cpp
+  LeaderBoardState.cpp
+  Label.cpp
+  HelpState.cpp
+  GameState.cpp
+  GameOverState.cpp
+c:\users\pc\documents\visual studio 2015\projects\sfmlgaim\sfml space shooter game\gameoverstate.cpp(15): warning C4101: 'Event': unreferenced local variable
   Entity.cpp
+  EmitterNode.cpp
   DataTables.cpp
+c:\users\pc\documents\visual studio 2015\projects\sfmlgaim\sfml space shooter game\datatables.cpp(14): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\pc\documents\visual studio 2015\projects\sfmlgaim\sfml space shooter game\datatables.cpp(22): warning C4305: 'argument': truncation from 'double' to 'float'
+  Database.cpp
+  Container.cpp
+  Component.cpp
+  CommandQueue.cpp
+  Command.cpp
+  Button.cpp
+  BloomEffect.cpp
   Application.cpp
+  Generating Code...
+c:\users\pc\documents\visual studio 2015\projects\sfmlgaim\sfml space shooter game\database.cpp(23): warning C4715: 'open': not all control paths return a value
+  Compiling...
+  Animation.cpp
+  Generating Code...
+sfml-main-d.lib(MainWin32.cpp.obj) : warning LNK4099: PDB 'vc140.pdb' was not found with 'sfml-main-d.lib(MainWin32.cpp.obj)' or at 'C:\Users\PC\Documents\Visual Studio 2015\Projects\SfmlGaim\Debug\vc140.pdb'; linking object as if no debug info
   SFML SPACE SHOOTER GAME.vcxproj -> C:\Users\PC\Documents\Visual Studio 2015\Projects\SfmlGaim\Debug\SFMLGame.exe
   SFML SPACE SHOOTER GAME.vcxproj -> C:\Users\PC\Documents\Visual Studio 2015\Projects\SfmlGaim\Debug\SFMLGame.pdb (Partial PDB)

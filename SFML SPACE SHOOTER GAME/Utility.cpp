@@ -15,6 +15,7 @@ namespace {
 	auto RandomEngine = createRandomEngine();
 }
 
+//Translate Key press to a Letter
 std::string toString(sf::Keyboard::Key key) {
 #define GAME_KEYTOSTRING_CASE(KEY) case sf::Keyboard::KEY: return #KEY;
 	switch (key) {
@@ -159,4 +160,34 @@ float length(sf::Vector2f vector) {
 sf::Vector2f unitVector(sf::Vector2f vector) {
 	assert(vector != sf::Vector2f(0.f, 0.f));
 	return vector / length(vector);
+}
+
+sf::Color setHue(int r, int g, int b) {
+	int hr = 0, hg = 0, hb = 0;
+	//Some hue solution from StackOverflow, doesnt really work
+	r += hr;
+	g += hg;
+	b += hb;
+
+	if (r == 255 && g == 0 && b == 0){
+		hr = 0; hg = 1; hb = 0;
+	}
+	if (r == 255 && g == 255 && b == 0){
+		hr = -1; hg = 0; hb = 0;
+	}
+	if (r == 0 && g == 255 && b == 0){
+		hr = 0; hg = 0; hb = 1;
+	}
+	if (r == 0 && g == 255 && b == 255){
+		hr = 0; hg = -1; hb = 0;
+	}
+	if (r == 0 && g == 0 && b == 255){
+		hr = 1; hg = 0; hb = 0;
+	}
+	if (r == 255 && g == 0 && b == 255){
+		hr = 0; hg = 0; hb = -1;
+	}
+
+	return sf::Color(r, g, b);
+
 }

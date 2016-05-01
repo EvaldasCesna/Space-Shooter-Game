@@ -11,7 +11,7 @@ namespace GUI {
 		, mSprite(context.textures->get(Textures::Buttons))
 		, mText("", context.fonts->get(Fonts::Main), 16)
 		, mIsToggle(false)
-		, mSounds(*context.sounds)
+		, mSounds(*context.sounds) 
 	{
 		changeTexture(Normal);
 		sf::FloatRect bounds = mSprite.getLocalBounds();
@@ -48,9 +48,9 @@ namespace GUI {
 	void Button::activate() {
 		Component::activate();
 		// If its true then show that it is pressed
-		if (mIsToggle)
+		if (mIsToggle) 
 			changeTexture(Pressed);
-
+		
 		if (mCallback)
 			mCallback();
 		// If its not true just make it normal again

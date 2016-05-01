@@ -15,7 +15,7 @@ namespace {
 Projectile::Projectile(Type type, const TextureHolder& textures) : Entity(1)
 , mType(type)
 , mSprite(textures.get(Table[type].texture), Table[type].textureRect)
-, mTargetDirection() 
+, mTargetDirection()
 {
 	centerOrigin(mSprite);
 	// Adds particles for missiles
@@ -28,6 +28,9 @@ Projectile::Projectile(Type type, const TextureHolder& textures) : Entity(1)
 		propellant->setPosition(0.f, getRectBounds().height / 2.f);
 		attachChild(std::move(propellant));
 	}
+	if (isBigLaser()) {
+		mSprite.scale(mSprite.getScale().x, mSprite.getScale().y + 20);
+	}
 }
 
 void Projectile::guideTowards(sf::Vector2f position) {
@@ -37,6 +40,10 @@ void Projectile::guideTowards(sf::Vector2f position) {
 
 bool Projectile::isGuided() const {
 	return mType == Missile;
+}
+
+bool Projectile::isBigLaser() const {
+	return mType == BigLaser;
 }
 
 void Projectile::updateCurrent(sf::Time dt, CommandQueue& commands) {
@@ -49,6 +56,8 @@ void Projectile::updateCurrent(sf::Time dt, CommandQueue& commands) {
 		setRotation(toDegree(angle) + 90.f);
 		setVelocity(newVelocity);
 	}
+	updateProjectilePattern(dt);
+
 	Entity::updateCurrent(dt, commands);
 }
 
@@ -57,7 +66,11 @@ void Projectile::drawCurrent(sf::RenderTarget& target, sf::RenderStates states) 
 }
 
 unsigned int Projectile::getCategory() const {
-	if (mType == EnemyBullet)
+	if (mType == EnemyLaser)
+		return Category::EnemyProjectile;
+	if (mType == EnemyLaser2) 
+		return Category::EnemyProjectile;
+	if (mType == EnemyLaser3)
 		return Category::EnemyProjectile;
 	else
 		return Category::AlliedProjectile;
@@ -73,4 +86,24 @@ float Projectile::getMaxSpeed() const {
 
 int Projectile::getDamage() const {
 	return Table[mType].damage;
+}
+
+void Projectile::updateProjectilePattern(sf::Time dt) {
+	// Enemy movements
+	const std::vector<Direction>& directions = Table[mType].directions;
+	if (!directions.empty()) {
+		// Moves then changes direction
+		if (mTravelledDistance > directions[mDirectionIndex].distance) {
+			mDirectionIndex = (mDirectionIndex + 1) % directions.size();
+			mTravelledDistance = 0.f;
+		}
+		// Compute velocity from direction
+		float radians = toRadian(directions[mDirectionIndex].angle + 90.f);
+		float vx = getMaxSpeed() * std::cos(radians);
+		float vy = getMaxSpeed() * std::sin(radians);
+
+		setVelocity(vx, vy);
+
+		mTravelledDistance += getMaxSpeed() * dt.asSeconds();
+	}
 }

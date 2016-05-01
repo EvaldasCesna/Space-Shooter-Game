@@ -1,6 +1,5 @@
 #include <Game/BloomEffect.h>
 
-
 BloomEffect::BloomEffect() : mShaders(), mBrightnessTexture(), mFirstPassTextures(), mSecondPassTextures() {
 	mShaders.load(Shaders::BrightnessPass, "Media/Shaders/Fullpass.vert", "Media/Shaders/Brightness.frag");
 	mShaders.load(Shaders::DownSamplePass, "Media/Shaders/Fullpass.vert", "Media/Shaders/DownSample.frag");

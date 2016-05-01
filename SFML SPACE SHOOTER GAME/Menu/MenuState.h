@@ -6,6 +6,7 @@
 #include <SFML/Graphics/Text.hpp>
 
 class MenuState : public State {
+
 public:
 	MenuState(StateStack&, Context);
 	virtual void draw();

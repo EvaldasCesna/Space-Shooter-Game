@@ -2,7 +2,6 @@
 #include <SFML/Audio/Listener.hpp>
 #include <cmath>
 
-
 namespace {
 	// Can set coordinate based on where the player is to play sound
 	// X = left; Y = up; Z = off screen
@@ -17,7 +16,7 @@ SoundPlayer::SoundPlayer() : mSoundBuffers(), mSounds() {
 	mSoundBuffers.load(SoundEffect::EnemyLaser, "Media/Sound/EnemyLaser.wav");
 	mSoundBuffers.load(SoundEffect::Explosion1, "Media/Sound/Explosion1.wav");
 	mSoundBuffers.load(SoundEffect::Explosion2, "Media/Sound/Explosion2.wav");
-	mSoundBuffers.load(SoundEffect::LaunchMissile, "Media/Sound/LaunchMissile.wav");
+	mSoundBuffers.load(SoundEffect::Special, "Media/Sound/ShootW2.wav");
 	mSoundBuffers.load(SoundEffect::CollectPickup, "Media/Sound/CollectPickup.wav");
 	mSoundBuffers.load(SoundEffect::Button, "Media/Sound/Button.wav");
 

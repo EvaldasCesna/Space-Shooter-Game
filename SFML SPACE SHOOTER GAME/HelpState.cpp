@@ -5,9 +5,10 @@
 
 HelpState::HelpState(StateStack& stack, Context context) : State(stack, context), mGUIContainer() {
 	mBackgroundSprite.setTexture(context.textures->get(Textures::Help));
+	sf::Vector2f windowSize(context.window->getSize());
 
 	auto backButton = std::make_shared<GUI::Button>(context);
-	backButton->setPosition(50.f, 700.f);
+	backButton->setPosition(0.4f * windowSize.x, 0.8f * windowSize.y);
 	backButton->setText("Back");
 	backButton->setCallback(std::bind(&HelpState::requestStackPop, this));
 

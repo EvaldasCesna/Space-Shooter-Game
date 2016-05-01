@@ -1,10 +1,10 @@
 #ifndef GAME_CATEGORY_H
 #define GAME_CATEGORY_H
-// Each category is a group of one or multiple game objects
+// Each category is a group of one or multiple game objects that have similar commands
 namespace Category {
 	enum Type {
 		None = 0,
-		SceneAirLayer = 1 << 0,
+		SceneSpaceLayer = 1 << 0,
 		PlayerSpaceship = 1 << 1,
 		AlliedSpaceship = 1 << 2,
 		EnemySpaceship = 1 << 3,

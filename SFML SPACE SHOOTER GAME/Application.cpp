@@ -2,10 +2,10 @@
 #include <Game/Utility.h>
 #include <Game/State.h>
 #include <Game/StateIdentifiers.h>
-#include <Game/TitleState.h>
+#include <Menu/TitleState.h>
 #include <Game/GameState.h>
 #include <Menu/SettingsState.h>
-#include <Game/GameOverState.h>
+#include <Menu/GameOverState.h>
 #include <Menu/MenuState.h>
 #include <Menu/PauseState.h>
 #include <Menu/HelpState.h>
@@ -24,10 +24,13 @@ Application::Application() : mWindow(sf::VideoMode(1024, 768), "SFML Space Shoot
 	mWindow.setKeyRepeatEnabled(false);
 	mWindow.setVerticalSyncEnabled(true);
 
+	//Menu Textures and font are loaded here 
 	mFonts.load(Fonts::Main, "Media/Consolas Bold.ttf");
 	mTextures.load(Textures::TitleScreen, "Media/Textures/TitleScreen.png");
 	mTextures.load(Textures::Help, "Media/Textures/help.png");
 	mTextures.load(Textures::Buttons, "Media/Textures/Buttons.png");
+	mTextures.load(Textures::Modification, "Media/Textures/Modification.png");
+	mTextures.load(Textures::Player, "Media/Textures/Player.png");
 
 	mStatsText.setFont(mFonts.get(Fonts::Main));
 	mStatsText.setPosition(5.f, 5.f);
@@ -35,7 +38,7 @@ Application::Application() : mWindow(sf::VideoMode(1024, 768), "SFML Space Shoot
 
 	registerStates();
 	mStateStack.pushState(States::Title);
-	mMusic.setVolume(25.f);
+	mMusic.setVolume(15.f);
 }
 
 void Application::run() {

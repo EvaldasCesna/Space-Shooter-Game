@@ -1,6 +1,7 @@
-#include <Game/TitleState.h>
+#include <Menu/TitleState.h>
 #include <Game/Utility.h>
 #include <Game/ResourceHolder.h>
+#include <Sound/MusicPlayer.h>
 #include <SFML/Graphics/RenderWindow.hpp>
 
 TitleState::TitleState(StateStack& stack, Context context) : State(stack, context)
@@ -14,6 +15,8 @@ TitleState::TitleState(StateStack& stack, Context context) : State(stack, contex
 	mText.setString("Press any key");
 	centerOrigin(mText);
 	mText.setPosition(sf::Vector2f(context.window->getSize() / 2u));
+		// Menu music
+	context.music->play(Music::MenuMusic);
 }
 
 void TitleState::draw() {

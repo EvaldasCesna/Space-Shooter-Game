@@ -39,4 +39,4 @@ private:
 	std::size_t mStatsNumFrames;
 };
 
-#endif // GAME_APPLICATION_H
+#endif // !GAME_APPLICATION_H

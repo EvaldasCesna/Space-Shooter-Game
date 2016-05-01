@@ -17,13 +17,16 @@ namespace Textures {
 		Pickup,
 		Space,
 		Space2,
+		Space3,
+		Space4,
 		TitleScreen,
 		Help,
 		Buttons,
 		Explosion,
 		Particle,
 		Boss,
-		//	Enviroment,
+		Modification,
+		Enviroment,
 	};
 }
 
@@ -48,7 +51,7 @@ namespace SoundEffect {
 		EnemyLaser,
 		Explosion1,
 		Explosion2,
-		LaunchMissile,
+		Special,
 		CollectPickup,
 		Button,
 	};
@@ -56,8 +59,8 @@ namespace SoundEffect {
 
 namespace Music {
 	enum ID {
-		MenuTheme,
-		MissionTheme,
+		MenuMusic,
+		LevelMusic,
 	};
 }
 // Forwards the declarations and type definitions

@@ -13,7 +13,7 @@ public:
 		MoveUp,
 		MoveDown,
 		Fire,
-		LaunchMissile,
+		Special,
 		ActionCount
 	};
 
@@ -35,7 +35,22 @@ public:
 
 	int getScore();
 	void resetScore();
-	void updateScore(unsigned int in);
+	void updateScore(int);
+
+	void setLevel(int);
+	int getLevel();
+
+	void setHull(int);
+	int getHull();
+
+	void setShip(int s);
+	int getShip();
+
+	void setWeapon1(int w);
+	int getWeapon1();
+
+	void setWeapon2(int w);
+	int getWeapon2();
 
 private:
 	void initializeActions();
@@ -45,6 +60,11 @@ private:
 	std::map<Action, Command> mActionBinding;
 	LevelStatus mCurrentMissionStatus;
 
-	int score;
+	int mLevel = 1;
+	int mScore;
+	int mHull = 1;
+	int mShip = 1;
+	int mWeapon1 = 1;
+	int mWeapon2 = 1;
 };
 #endif // !GAME_PLAYER_H
